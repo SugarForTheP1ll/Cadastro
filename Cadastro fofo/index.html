@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <form class="box" action="index.html" method="post">
+        <h1>Cadastro</h1>
+        <input type="text" name="" placeholder="Nome Completo">
+        <input type="text" name="" placeholder="Carga Horária">
+        <input type="text" name="" placeholder="Horário">
+        <input type="text" name="" placeholder="Atividade">
+        <input type="submit" name="" value="Consultar">
+    </form>
+    <script>
+        // Adiciona um evento de submit ao formulário
+                document.getElementById("cadastro-form").addEventListener("submit", function(event) {
+                event.preventDefault(); // impede que a página seja recarregada
+
+                // Captura os valores dos campos de entrada
+                var nome = document.getElementById("nome").value;
+                var cargaHoraria = document.getElementById("carga-horaria").value;
+                var horario = document.getElementById("horario").value;
+                var atividade = document.getElementById("atividade").value;
+
+                // Cria um objeto com os valores capturados
+                var atividadeObj = {
+                    nome: nome,
+                    cargaHoraria: cargaHoraria,
+                    horario: horario,
+                    atividade: atividade
+                };
+
+                // Adiciona o objeto à lista de atividades
+                listaAtividades.push(atividadeObj);
+
+                // Cria um novo item de lista com as informações da atividade
+                var novoItemLista = document.createElement("li");
+                novoItemLista.innerHTML = nome + " - " + atividade + " - " + cargaHoraria + " - " + horario;
+
+                // Adiciona o novo item à lista de atividades
+                document.getElementById("lista-atividades").appendChild(novoItemLista);
+
+                // Limpa os campos de entrada
+                document.getElementById("nome").value = "";
+                document.getElementById("carga-horaria").value = "";
+                document.getElementById("horario").value = "";
+                document.getElementById("atividade").value = "";
+                });
+
+                // Cria uma lista vazia para armazenar as atividades
+                var listaAtividades = [];
+    </script>
+</body>
+</html>
